@@ -13,7 +13,7 @@
         >
           <div class="title-bar">
             <img class="logo" src="../assets/oj-logo.svg" />
-            <div class="title">IOJ</div>
+            <div class="title">I OJ</div>
           </div>
         </a-menu-item>
         <a-menu-item v-for="item in visibleRoutes" :key="item.path">
@@ -64,11 +64,12 @@ router.afterEach((to, from, failure) => {
   selectedKeys.value = [to.path];
 });
 
-console.log();
+console.log("1111");
+console.log(store.state.user?.loginUser);
 
 setTimeout(() => {
   store.dispatch("user/getLoginUser", {
-    userName: "橘子皮管理员",
+    userName: "管理员",
     userRole: ACCESS_ENUM.ADMIN,
   });
 }, 3000);

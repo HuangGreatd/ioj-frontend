@@ -41,7 +41,17 @@ const codeEditor = ref();
 //   // 改变值
 //   toRaw(codeEditor.value).setValue("新的值");
 // };
-
+watch(
+  () => props.language,
+  () => {
+    if (codeEditor.value) {
+      monaco.editor.setModelLanguage(
+        toRaw(codeEditor.value).getModel(),
+        props.language
+      );
+    }
+  }
+);
 // watch(
 //   () => props.language,
 //   () => {
